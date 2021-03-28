@@ -15,7 +15,8 @@ public class StudentMain {
         Student david = new Student("David", 29, 10);
         Student anna = new Student("Anna", 17, 10);
 
-        printStudents(bob, adam);
+        printStudents(bob);
+        printStudents(adam);
 
         StudentService studentService = new StudentService(
                 of(bob, adam, tyler, clare, david, anna));
@@ -39,10 +40,8 @@ public class StudentMain {
                                 studentService.getStudentList().get(index))));
     }
 
-    private static void printStudents(Student bob, Student adam) {
-        System.out.println(bob);
-        System.out.println(bob.getAge());
-        System.out.println(adam);
-        System.out.println(adam.getAge());
+    private static void printStudents(Student student) {
+        System.out.println(student);
+        System.out.println(student.getAge());
     }
 }

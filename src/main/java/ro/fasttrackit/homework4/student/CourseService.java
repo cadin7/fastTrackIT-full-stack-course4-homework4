@@ -9,7 +9,7 @@ public record CourseService(List<Course> courses) {
         return """
                 {
                     "course":"%s",
-                    "semester":%d
+                    "semester":"%d"
                 }
                 """.formatted(course.course(), course.semester());
     }

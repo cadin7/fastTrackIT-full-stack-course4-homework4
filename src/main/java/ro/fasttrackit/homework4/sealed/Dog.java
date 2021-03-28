@@ -1,6 +1,6 @@
 package ro.fasttrackit.homework4.sealed;
 
-public final class Dog implements Animal{
+public final class Dog implements Animal {
     @Override
     public String type() {
         return "dog";

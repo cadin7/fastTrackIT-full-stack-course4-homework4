@@ -1,6 +1,6 @@
 package ro.fasttrackit.homework4.sealed;
 
-public non-sealed class Chicken implements Bird{
+public non-sealed class Chicken implements Bird {
     @Override
     public String type() {
         return "chicken";
