@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.String.format;
-import static java.lang.String.join;
 import static java.lang.System.lineSeparator;
 import static java.util.stream.Collectors.*;
 import static ro.fasttrackit.homework4.student.CourseService.getCourseTextBox;
@@ -23,9 +22,9 @@ public class StudentService {
     public String getStudentsAvgGrade() {
         return studentList.stream()
                 .collect(teeing(
-                        mapping(Student::name, toList()),
+                        mapping(Student::name, joining(", ")),
                         averagingDouble(Student::grade),
-                        (names, avgGrade) -> join(", ", names) +
+                        (names, avgGrade) -> names +
                                 " have an average grade of: " +
                                 format("%.2f", avgGrade)));
     }
