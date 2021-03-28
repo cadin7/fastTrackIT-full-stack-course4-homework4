@@ -6,6 +6,7 @@ import static java.time.LocalDate.of;
 import static java.util.Collections.unmodifiableList;
 import static java.util.List.of;
 import static java.util.stream.IntStream.range;
+import static ro.fasttrackit.homework4.student.StudentGrades.getGrade;
 
 public class StudentMain {
     public static void main(String[] args) {
@@ -35,10 +36,9 @@ public class StudentMain {
 
         List<Student> studentList = unmodifiableList(studentService.getStudentList());
         range(0, studentList.size())
-                .forEach(index -> System.out.println(
-                        StudentGrades.getGrade(
-                                index,
-                                studentList.get(index))));
+                .forEach(index -> System.out.println(getGrade(
+                        index,
+                        studentList.get(index))));
     }
 
     private static void printStudents(Student student) {
