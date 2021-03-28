@@ -3,6 +3,7 @@ package ro.fasttrackit.homework4.student;
 import java.util.List;
 
 import static java.time.LocalDate.of;
+import static java.util.Collections.unmodifiableList;
 import static java.util.List.of;
 import static java.util.stream.IntStream.range;
 
@@ -32,11 +33,12 @@ public class StudentMain {
         System.out.println(studentService.getStudentCourse(
                 new CourseService(courses).getRandomCourse()));
 
-        range(0, studentService.getStudentList().size())
+        List<Student> studentList = unmodifiableList(studentService.getStudentList());
+        range(0, studentList.size())
                 .forEach(index -> System.out.println(
-                        StudentGradeHelper.dispatch(
+                        StudentGrades.getGrade(
                                 index,
-                                studentService.getStudentList().get(index))));
+                                studentList.get(index))));
     }
 
     private static void printStudents(Student student) {
