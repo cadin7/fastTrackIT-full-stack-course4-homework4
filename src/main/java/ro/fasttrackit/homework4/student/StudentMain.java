@@ -32,10 +32,9 @@ public class StudentMain {
         System.out.println(studentService.getStudentCourse(
                 new CourseService(courses).getRandomCourse()));
 
-        StudentEventDispatcher studentDispatcher = new StudentEventDispatcher();
         range(0, studentService.getStudentList().size())
                 .forEach(index -> System.out.println(
-                        studentDispatcher.dispatch(
+                        StudentGradeHelper.dispatch(
                                 index,
                                 studentService.getStudentList().get(index))));
     }
